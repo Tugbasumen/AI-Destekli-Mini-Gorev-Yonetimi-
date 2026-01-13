@@ -21,4 +21,22 @@ class TaskViewModel extends ChangeNotifier {
     _taskService.addTask(newTask);
     notifyListeners();
   }
+
+  void deleteTask(String id) {
+    _taskService.deleteTask(id);
+    notifyListeners();
+  }
+
+  void updateTask(String id, String newTitle, TaskCategory newCategory) {
+    if (newTitle.trim().isEmpty) return;
+
+    _taskService.updateTask(id: id, title: newTitle, category: newCategory);
+
+    notifyListeners();
+  }
+
+  void toggleTaskDone(String id) {
+    _taskService.toggleTaskDone(id);
+    notifyListeners();
+  }
 }
