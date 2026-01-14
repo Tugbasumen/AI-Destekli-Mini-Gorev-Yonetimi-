@@ -3,9 +3,10 @@ import 'package:provider/provider.dart';
 import '../viewmodel/task_view_model.dart';
 import '../../core/models/task.dart';
 import '../../core/models/task_category.dart';
+import 'package:gorev_yonetimi/core/services/deepseek_service.dart';
 
 class AddTaskView extends StatefulWidget {
-  final Task? task; // 👈 düzenleme için
+  final Task? task; // Düzenleme için
 
   const AddTaskView({super.key, this.task});
 
@@ -20,8 +21,6 @@ class _AddTaskViewState extends State<AddTaskView> {
   @override
   void initState() {
     super.initState();
-
-    // 👇 Eğer düzenleme ise mevcut veriler gelsin
     _controller.text = widget.task?.title ?? '';
     _selectedCategory = widget.task?.category ?? TaskCategory.kisisel;
   }
@@ -30,6 +29,50 @@ class _AddTaskViewState extends State<AddTaskView> {
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  /// AI Önerisi al fonksiyonu
+  Future<void> _getAIRecommendation() async {
+    final taskTitle = _controller.text.trim();
+    if (taskTitle.isEmpty) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Önce görev başlığı girin')));
+      return;
+    }
+
+    final deepSeek = DeepSeekService(); // LOCAL AI
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const Center(child: CircularProgressIndicator()),
+    );
+
+    try {
+      final recommendation = await deepSeek.getTaskRecommendation(taskTitle);
+
+      Navigator.pop(context);
+
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: const Text('AI Önerisi'),
+          content: Text(recommendation),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Kapat'),
+            ),
+          ],
+        ),
+      );
+    } catch (e) {
+      Navigator.pop(context);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('AI önerisi alınamadı: $e')));
+    }
   }
 
   @override
@@ -44,7 +87,7 @@ class _AddTaskViewState extends State<AddTaskView> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // 🔽 Kategori seçimi
+            // Kategori seçimi
             DropdownButtonFormField<TaskCategory>(
               value: _selectedCategory,
               decoration: const InputDecoration(
@@ -61,6 +104,10 @@ class _AddTaskViewState extends State<AddTaskView> {
                   value: TaskCategory.egitim,
                   child: Text('Eğitim'),
                 ),
+                DropdownMenuItem(
+                  value: TaskCategory.saglik,
+                  child: Text('Sağlık'),
+                ),
               ],
               onChanged: (value) {
                 if (value != null) {
@@ -73,7 +120,7 @@ class _AddTaskViewState extends State<AddTaskView> {
 
             const SizedBox(height: 20),
 
-            // ✏️ Görev başlığı
+            // Görev başlığı
             TextField(
               controller: _controller,
               decoration: const InputDecoration(
@@ -84,7 +131,7 @@ class _AddTaskViewState extends State<AddTaskView> {
 
             const SizedBox(height: 24),
 
-            // 💾 Kaydet / Güncelle
+            // Kaydet / Güncelle
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -93,10 +140,8 @@ class _AddTaskViewState extends State<AddTaskView> {
                   if (text.isEmpty) return;
 
                   if (widget.task == null) {
-                    // ➕ ekleme
                     taskViewModel.addTask(text, _selectedCategory);
                   } else {
-                    // ✏️ düzenleme
                     taskViewModel.updateTask(
                       widget.task!.id,
                       text,

@@ -5,6 +5,7 @@ import 'features/view/task_list_view.dart';
 import 'features/viewmodel/task_view_model.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
