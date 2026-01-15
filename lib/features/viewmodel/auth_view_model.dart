@@ -101,24 +101,4 @@ class AuthViewModel extends ChangeNotifier {
       _setLoading(false);
     }
   }
-
-  /// Send password reset email
-  Future<bool> sendPasswordResetEmail(String email) async {
-    _setLoading(true);
-    _setError(null);
-
-    try {
-      await _authService.sendPasswordResetEmail(email);
-      _setLoading(false);
-      return true;
-    } on AppException catch (e) {
-      _setError(e.message);
-      _setLoading(false);
-      return false;
-    } catch (e) {
-      _setError('Şifre sıfırlama e-postası gönderilirken bir hata oluştu');
-      _setLoading(false);
-      return false;
-    }
-  }
 }
