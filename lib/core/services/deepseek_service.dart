@@ -1,30 +1,64 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:gorev_yonetimi/core/constants/app_constants.dart';
+import 'package:gorev_yonetimi/core/errors/app_exceptions.dart';
 
+/// DeepSeek AI servisi ile iletişim kuran servis sınıfı
 class DeepSeekService {
-  static const String _baseUrl = "http://192.168.1.103:5000";
-  // Android emulator için: http://10.0.2.2:5000
-  // Gerçek cihazdaysan: http://BILGISAYAR_IP:5000
+  final String baseUrl;
+  final Duration timeout;
 
+  DeepSeekService({String? baseUrl, Duration? timeout})
+    : baseUrl = baseUrl ?? AppConstants.aiServiceBaseUrl,
+      timeout = timeout ?? AppConstants.apiTimeout;
+
+  /// Belirli bir görev ve kategori için AI tabanlı öneri alır
   Future<String> getTaskRecommendation(
     String taskTitle, {
     String category = "genel",
   }) async {
-    try {
-      final response = await http.post(
-        Uri.parse("$_baseUrl/get_ai_suggestion"),
-        headers: {"Content-Type": "application/json"},
-        body: jsonEncode({"task": taskTitle, "category": category}),
-      );
+    // Görev başlığı kontrolü
+    if (taskTitle.trim().isEmpty) {
+      throw ValidationException('Task title cannot be empty');
+    }
 
+    try {
+      final uri = Uri.parse('$baseUrl${AppConstants.aiServiceEndpoint}');
+
+      // API isteği gönderiliyor
+      final response = await http
+          .post(
+            uri,
+            headers: {"Content-Type": "application/json"},
+            body: jsonEncode({"task": taskTitle, "category": category}),
+          )
+          .timeout(timeout);
+      // Yanıt başarılı
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return data["suggestion"] ?? "Öneri alınamadı.";
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        final suggestion = data["suggestion"] as String?;
+        if (suggestion == null || suggestion.isEmpty) {
+          throw ApiException('API\'den boş öneri alındı');
+        }
+        return suggestion;
       } else {
-        throw Exception("API Hatası: Status ${response.statusCode}");
+        // Sunucu hata döndürdüğünde
+        throw ApiException(
+          'API isteği başarısız oldu (Hata Kodu: ${response.statusCode}',
+          response.body,
+        );
       }
+    } on http.ClientException catch (e) {
+      // Bağlantı hataları
+      throw NetworkException('Ağ bağlantısı başarısız oldu: ${e.message}', e);
+    } on FormatException catch (e) {
+      // JSON ayrıştırma hataları
+      throw ApiException('Geçersiz yanıt formatı: ${e.message}', e);
     } catch (e) {
-      throw Exception("Bağlantı hatası: $e");
+      if (e is AppException) {
+        rethrow;
+      }
+      throw NetworkException('Beklenmeyen bir hata oluştu: ${e.toString()}', e);
     }
   }
 }

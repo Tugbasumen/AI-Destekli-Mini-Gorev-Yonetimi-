@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "172029075552",
+    "project_id": "gorevyonetimi-bf0a1",
+    "storage_bucket": "gorevyonetimi-bf0a1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172029075552:android:23887057acf1271f452305",
+        "android_client_info": {
+          "package_name": "com.example.gorev_yonetimi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClhr42Ckl6uq6bVX5YhJQypm6-0IxVwa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
