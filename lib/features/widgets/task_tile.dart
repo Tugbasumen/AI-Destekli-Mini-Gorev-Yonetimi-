@@ -35,6 +35,8 @@ class TaskTile extends StatelessWidget {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
+          backgroundColor: Colors.white, // Arka plan beyaz
+          surfaceTintColor: Colors.white, // Morumsu tonu engeller
           title: const Text('AI Önerisi'),
           content: SizedBox(
             width: double.maxFinite,
@@ -124,6 +126,8 @@ class TaskTile extends StatelessWidget {
           ),
         ),
         trailing: PopupMenuButton<_TaskMenuAction>(
+          color: Colors.white, // Arka plan rengi
+          surfaceTintColor: Colors.white, // Material 3 tonlamasını kapatır
           icon: const Icon(Icons.more_vert),
           onSelected: (action) {
             switch (action) {

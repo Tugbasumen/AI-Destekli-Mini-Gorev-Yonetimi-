@@ -1,54 +1,27 @@
-import { useEffect, useState } from "react";
-import { getTasks } from "./services/taskService";
+import Header from "./components/Header";
 import TaskList from "./components/TaskList";
+import { useTasks } from "./hooks/useTasks";
+import theme from "./theme/theme";
 
 import {
   Container,
-  Typography,
   CircularProgress,
   Box,
 } from "@mui/material";
 
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#1976d2",
-    },
-  },
-});
-
 function App() {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const data = await getTasks();
-      setTasks(data);
-      setLoading(false);
-    };
-
-    fetchTasks();
-  }, []);
+  const { tasks, loading } = useTasks();
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Container maxWidth="sm">
-        <Typography
-          variant="h4"
-          component="h1"
-          align="center"
-          gutterBottom
-          sx={{ mt: 4 }}
-        >
-          Task Manager
-        </Typography>
+      <Header />
 
+      <Container maxWidth="sm" sx={{ mt: 3 }}>
         {loading ? (
           <Box display="flex" justifyContent="center" mt={4}>
             <CircularProgress />

@@ -5,9 +5,6 @@ class AppConstants {
   static const String aiServiceBaseUrl = "http://192.168.1.104:5000";
   static const String aiServiceEndpoint = "/get_ai_suggestion";
 
-  // Android emulator için: http://10.0.2.2:5000
-  // Gerçek cihazdaysan: http://BILGISAYAR_IP:5000
-
   // API Timeouts
   static const Duration apiTimeout = Duration(seconds: 90);
 

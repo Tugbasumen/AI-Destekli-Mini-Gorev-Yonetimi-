@@ -5,4 +5,3 @@ let tasks = [...initialTasks];
 export const getTasks = async () => {
   return tasks;
 };
-

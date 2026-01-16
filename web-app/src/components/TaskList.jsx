@@ -1,4 +1,4 @@
-import { List, Paper, Typography, Box } from "@mui/material";
+import { List, Paper, Typography, Box, Divider } from "@mui/material";
 import TaskItem from "./TaskItem";
 
 function TaskList({ tasks }) {
@@ -17,13 +17,14 @@ function TaskList({ tasks }) {
 
   return (
     <Paper
-      elevation={3}
+      elevation={2}
       sx={{
         mt: 3,
         borderRadius: 2,
         overflow: "hidden",
       }}
     >
+      {/* Header */}
       <Box
         sx={{
           px: 3,
@@ -40,14 +41,17 @@ function TaskList({ tasks }) {
         </Typography>
       </Box>
 
-      <List disablePadding>
-  {tasks.map((task, index) => (
-    <Box key={task.id} sx={{ mb: index !== tasks.length - 1 ? 2 : 0 }}>
-      <TaskItem task={task} />
-    </Box>
-  ))}
-</List>
-
+      {/* Task List */}
+      <List disablePadding sx={{ p: 2 }}>
+        {tasks.map((task, index) => (
+          <Box key={task.id}>
+            <TaskItem task={task} />
+            {index !== tasks.length - 1 && (
+              <Divider sx={{ my: 1 }} />
+            )}
+          </Box>
+        ))}
+      </List>
     </Paper>
   );
 }
