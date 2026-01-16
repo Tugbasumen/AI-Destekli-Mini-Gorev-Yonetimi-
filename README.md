@@ -54,29 +54,16 @@ Proje, sürdürülebilirlik ve test edilebilirlik odaklı olarak **Katmanlı Mim
 * Node.js (>= 18)
 * Python (>= 3.10)
 
-### 2️⃣ Mobil Uygulama
-
-```bash
-# Bağımlılıkları yükle
-flutter pub get
-
-# Firebase yapılandırmasını kontrol edin
-# android/app/google-services.json mevcut olmalı
-
-# Uygulamayı çalıştır
-flutter run
-
-### 2️⃣ Mobil Uygulama
-```bash
+3️⃣ Web Uygulaması
 cd web-app
 npm install
 npm run dev
 
-###4️⃣ AI Backend (Flask)
-```bash
+4️⃣ AI Backend (Flask)
 cd ai_backend
 pip install -r requirements.txt
 python api.py
+
 
 Not: AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endpoint aktif değilse öneri özelliği çalışmaz.
 
@@ -96,7 +83,17 @@ Not: AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endp
 ### Web Uygulaması
 ![Görev Listesi Web](screenshots/web_listeleme.png)
 
-⏳ Gelecek Planları ve Teknik Borçlar
+🚀 Öne Çıkan Özellikler
+
+🔍 AI Suggestions: Görev başlığına göre DeepSeek modeli üzerinden stratejik öneriler sunar.
+
+🔄 Real-time Sync: Firestore Stream’leri ile cihazlar arası anlık veri senkronizasyonu.
+
+🛡️ Robust Error Handling: Merkezi exception mapping ile kullanıcıya anlamlı geri bildirimler sağlar.
+
+🎨 Dynamic Theming: Material 3 standartlarında, kategori bazlı renk kodlamalı arayüz.
+
+⏳ Gelecek Planları
 
 Unit Tests: ViewModel ve Service katmanları için %80+ test kapsamı
 
