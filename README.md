@@ -69,36 +69,32 @@ Not: AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endp
 
 ## 📸 Ekran Görüntüleri
 
+## 📸 Ekran Görüntüleri
+
 ### Mobil Uygulama
-![Giriş Ekranı](screenshots/giris.png)  
-![Kayıt Ekranı](screenshots/kayit.png)  
-![Görev Listesi](screenshots/gorev_listesi.png)  
-![Görev Listesi 2](screenshots/gorev_listesi2.png)  
-![Görev Öneri](screenshots/oneri.png)  
-![Görev Ekleme](screenshots/gorev_ekleme.png)  
-![Kategori Seçim](screenshots/kategori_secim.png)  
-![Görev Güncelleme](screenshots/gorev_guncelleme.png)  
-![Çıkış](screenshots/cikis.png)  
+![Giriş Ekranı](screenshots/giris.png)
+![Kayıt Ekranı](screenshots/kayit.png)
+![Görev Listesi](screenshots/gorev_listesi.png)
+![Görev Listesi 2](screenshots/gorev_listesi2.png)
+![Görev Öneri](screenshots/oneri.png)
+![Görev Ekleme](screenshots/gorev_ekleme.png)
+![Kategori Seçim](screenshots/kategori_secim.png)
+![Görev Güncelleme](screenshots/gorev_guncelleme.png)
+![Çıkış](screenshots/cikis.png)
 
 ### Web Uygulaması
 ![Görev Listesi Web](screenshots/web_listeleme.png)
 
-🚀 Öne Çıkan Özellikler
-
-🔍 AI Suggestions: Görev başlığına göre DeepSeek modeli üzerinden stratejik öneriler sunar.
-
-🔄 Real-time Sync: Firestore Stream’leri ile cihazlar arası anlık veri senkronizasyonu.
-
-🛡️ Robust Error Handling: Merkezi exception mapping ile kullanıcıya anlamlı geri bildirimler sağlar.
-
-🎨 Dynamic Theming: Material 3 standartlarında, kategori bazlı renk kodlamalı arayüz.
-
 ⏳ Gelecek Planları
 
-Unit Tests: ViewModel ve Service katmanları için %80+ test kapsamı
+Unit Tests: ViewModel ve Service katmanları için test kapsamı %80’in üzerine çıkarılacak.
 
-CI/CD: GitHub Actions ile otomatik build ve Firebase App Distribution entegrasyonu
+Web Uygulaması: Tüm ekranlar tamamlanacak ve kullanıcı deneyimi optimize edilecek.
 
-Offline Mode: Hive veya Sqflite kullanarak çevrimdışı veri desteği ve senkronizasyon
+Push Notifications & Hatırlatmalar: Firebase Cloud Messaging ile görev hatırlatmaları ve kullanıcı bildirimleri aktif hale getirilecek.
 
-Security: API katmanı için JWT tabanlı yetkilendirme ve rate-limiting
+Security: API katmanı için JWT tabanlı yetkilendirme ve rate-limiting uygulanacak.
+
+Performans & Optimizasyon: Uygulama yanıt süreleri iyileştirilecek, gereksiz yükler azaltılacak.
+
+Analytics & İzleme: Kullanıcı davranışları ve hata raporları için analitik ve loglama sistemleri entegre edilecek.
