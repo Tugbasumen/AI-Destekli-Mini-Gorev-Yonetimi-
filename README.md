@@ -54,12 +54,12 @@ Proje, sürdürülebilirlik ve test edilebilirlik odaklı olarak **Katmanlı Mim
 * Node.js (>= 18)
 * Python (>= 3.10)
 
-3️⃣ Web Uygulaması
+### 3️⃣ Web Uygulaması
 cd web-app
 npm install
 npm run dev
 
-4️⃣ AI Backend (Flask)
+### 4️⃣ AI Backend (Flask)
 cd ai_backend
 pip install -r requirements.txt
 python api.py
