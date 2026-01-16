@@ -69,12 +69,21 @@ Not: AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endp
 
 ## 📸 Ekran Görüntüleri
 
+## 📸 Ekran Görüntüleri
+
 ### Mobil Uygulama
-<img src="screenshots/giris.png" width="250" /> <img src="screenshots/kayit.png" width="250" /> <img src="screenshots/gorev_listesi.png" width="250" /> <img src="screenshots/gorev_listesi2.png" width="250" /> <img src="screenshots/oneri.png" width="250" /> <img src="screenshots/gorev_ekleme.png" width="250" /> <img src="screenshots/kategori_secim.png" width="250" /> <img src="screenshots/gorev_guncelleme.png" width="250" /> <img src="screenshots/cikis.png" width="250" />
+<img src="screenshots/giris.png" alt="Giriş Ekranı" width="300px">
+<img src="screenshots/kayit.png" alt="Kayıt Ekranı" width="300px">
+<img src="screenshots/gorev_listesi.png" alt="Görev Listesi" width="300px">
+<img src="screenshots/gorev_listesi2.png" alt="Görev Listesi 2" width="300px">
+<img src="screenshots/oneri.png" alt="Görev Öneri" width="300px">
+<img src="screenshots/gorev_ekleme.png" alt="Görev Ekleme" width="300px">
+<img src="screenshots/kategori_secim.png" alt="Kategori Seçim" width="300px">
+<img src="screenshots/gorev_guncelleme.png" alt="Görev Güncelleme" width="300px">
+<img src="screenshots/cikis.png" alt="Çıkış" width="300px">
 
 ### Web Uygulaması
-<img src="screenshots/web_listeleme.png" width="350" />
-
+<img src="screenshots/web_listeleme.png" alt="Görev Listesi Web" width="500px">
 
 ⏳ Gelecek Planları
 
