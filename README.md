@@ -1,9 +1,7 @@
+# 📝 AI-Powered Task Manager
 
-
-# 📝 AI-Powered Task Manager 
-
-Bu proje, modern yazılım mimarisi prensipleri kullanılarak geliştirilmiş hibrit bir platformdur.
-Kullanıcılar görevlerini kategori bazlı organize edebilir, bulut tabanlı senkronizasyon ile tüm cihazlarda takip edebilir ve **DeepSeek AI** aracılığıyla akıllı görev önerileri alabilir.
+**AI-Powered Task Manager**, modern yazılım mimarisi prensipleri kullanılarak geliştirilmiş hibrit bir görev yönetim platformudur.  
+Kullanıcılar görevlerini kategori bazlı organize edebilir, tüm cihazlarda **bulut senkronizasyonu** ile takip edebilir ve **DeepSeek AI** ile akıllı görev önerileri alabilir.
 
 ---
 
@@ -13,8 +11,8 @@ Proje, sürdürülebilirlik ve test edilebilirlik odaklı olarak **Katmanlı Mim
 
 ### Flutter (Mobil) Mimarisi
 
-* **View:** Yalnızca UI çizimi ve kullanıcı etkileşiminden sorumludur. İş mantığı içermez.
-* **ViewModel:** `ChangeNotifier` ve `Provider` ile durum yönetimi sağlar; UI ile servisler arasındaki köprü.
+* **View:** Sadece UI çizimi ve kullanıcı etkileşiminden sorumludur. İş mantığı içermez.
+* **ViewModel:** `ChangeNotifier` ve `Provider` ile state yönetimi sağlar; UI ile servisler arasındaki köprü görevini görür.
 * **Service Layer:** `Firebase Auth`, `Firestore` ve `DeepSeek API` iletişimini soyutlar.
 * **Core:** Hata yönetimi (`AppException`), sabitler ve tema tanımlarını içerir.
 
@@ -30,6 +28,7 @@ Proje, sürdürülebilirlik ve test edilebilirlik odaklı olarak **Katmanlı Mim
 * Cross-platform mobil uygulama geliştirme
 * `Provider` ile reaktif state yönetimi
 * `Firebase Auth` ve `Firestore` entegrasyonu
+* Modern Material 3 arayüz ve kategori bazlı renk kodlaması
 
 ## 💻 Web Uygulaması (React + Vite)
 
@@ -44,19 +43,20 @@ Proje, sürdürülebilirlik ve test edilebilirlik odaklı olarak **Katmanlı Mim
 * **Firebase:** Kullanıcı kimlik doğrulama ve real-time NoSQL veri tabanı
 * **DeepSeek AI:** Görev başlıklarına göre akıllı öneriler (Flask API üzerinden)
 * **Diğer:** `http`, `requests` gibi kütüphaneler ile API iletişimi
+
 ---
 
 ## ⚙️ Kurulum ve Çalıştırma
 
-### 1. Ön Hazırlık
+### 1️⃣ Ön Hazırlık
 
 * Flutter SDK (>= 3.10)
 * Node.js (>= 18)
 * Python (>= 3.10)
 
-### 2. Mobil Uygulama
+### 2️⃣ Mobil Uygulama
 
-
+```bash
 # Bağımlılıkları yükle
 flutter pub get
 
@@ -66,55 +66,42 @@ flutter pub get
 # Uygulamayı çalıştır
 flutter run
 
-### 3. Web Uygulaması
-
-
+### 2️⃣ Mobil Uygulama
+```bash
 cd web-app
 npm install
 npm run dev
 
-
-### 4. AI Backend (Flask)
-
-
+###4️⃣ AI Backend (Flask)
+```bash
 cd ai_backend
 pip install -r requirements.txt
 python api.py
 
-
-> **Not:** AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endpoint aktif değilse öneri özelliği çalışmaz.
-
----
+Not: AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endpoint aktif değilse öneri özelliği çalışmaz.
 
 ## 📸 Ekran Görüntüleri
 
-![Giriş Ekranı](screenshots/giris.png)
-![Kayıt Ekranı](screenshots/kayit.png)
-![Görev Listesi](screenshots/görev_listesi.png)
-![Görev Listesi](screenshots/görev_listesi2.png)
-![Görev Öneri](screenshots/öneri.png)
-![Görev Ekleme](screenshots/görev_ekleme.png)
-![Görev Ekleme](screenshots/kategori_secim.png)
-![Görev Güncelleme](screenshots/görev_guncelleme.png)
-![Çıkış](screenshots/cıkıs.png)
+### Mobil Uygulama
+![Giriş Ekranı](screenshots/giris.png)  
+![Kayıt Ekranı](screenshots/kayit.png)  
+![Görev Listesi](screenshots/gorev_listesi.png)  
+![Görev Listesi 2](screenshots/gorev_listesi2.png)  
+![Görev Öneri](screenshots/oneri.png)  
+![Görev Ekleme](screenshots/gorev_ekleme.png)  
+![Kategori Seçim](screenshots/kategori_secim.png)  
+![Görev Güncelleme](screenshots/gorev_guncelleme.png)  
+![Çıkış](screenshots/cikis.png)  
+
+### Web Uygulaması
 ![Görev Listesi Web](screenshots/web_listeleme.png)
----
 
-## 🚀 Öne Çıkan Özellikler
+⏳ Gelecek Planları ve Teknik Borçlar
 
-* 🔍 **AI Suggestions:** Görev başlığına göre DeepSeek modeli üzerinden stratejik öneriler sunar.
-* 🔄 **Real-time Sync:** Firestore Stream’leri ile cihazlar arası anlık veri senkronizasyonu.
-* 🛡️ **Robust Error Handling:** Merkezi exception mapping ile kullanıcıya anlamlı geri bildirimler sağlar.
-* 🎨 **Dynamic Theming:** Material 3 standartlarında, kategori bazlı renk kodlamalı arayüz.
+Unit Tests: ViewModel ve Service katmanları için %80+ test kapsamı
 
----
+CI/CD: GitHub Actions ile otomatik build ve Firebase App Distribution entegrasyonu
 
-## ⏳ Gelecek Planları ve Teknik Borçlar
+Offline Mode: Hive veya Sqflite kullanarak çevrimdışı veri desteği ve senkronizasyon
 
-* **Unit Tests:** ViewModel ve Service katmanları için %80+ test kapsamı
-* **CI/CD:** GitHub Actions ile otomatik build ve Firebase App Distribution entegrasyonu
-* **Offline Mode:** Hive veya Sqflite kullanarak çevrimdışı veri desteği ve senkronizasyon
-* **Security:** API katmanı için JWT tabanlı yetkilendirme ve rate-limiting
-
----
-
+Security: API katmanı için JWT tabanlı yetkilendirme ve rate-limiting
