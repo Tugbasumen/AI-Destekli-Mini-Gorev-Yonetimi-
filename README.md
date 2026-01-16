@@ -55,35 +55,32 @@ Proje, sürdürülebilirlik ve test edilebilirlik odaklı olarak **Katmanlı Mim
 * Python (>= 3.10)
 
 ### 3️⃣ Web Uygulaması
-cd web-app
-npm install
-npm run dev
+* cd web-app
+* npm install
+* npm run dev
 
 ### 4️⃣ AI Backend (Flask)
-cd ai_backend
-pip install -r requirements.txt
-python api.py
-
+* cd ai_backend
+* python api.py
 
 Not: AI backend, DeepSeek modeline lokal veya servis üzerinden bağlanır. Endpoint aktif değilse öneri özelliği çalışmaz.
 
 ## 📸 Ekran Görüntüleri
 
-## 📸 Ekran Görüntüleri
-
 ### Mobil Uygulama
-![Giriş Ekranı](screenshots/giris.png)
-![Kayıt Ekranı](screenshots/kayit.png)
-![Görev Listesi](screenshots/gorev_listesi.png)
-![Görev Listesi 2](screenshots/gorev_listesi2.png)
-![Görev Öneri](screenshots/oneri.png)
-![Görev Ekleme](screenshots/gorev_ekleme.png)
-![Kategori Seçim](screenshots/kategori_secim.png)
-![Görev Güncelleme](screenshots/gorev_guncelleme.png)
-![Çıkış](screenshots/cikis.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/e46afee5-a52a-410d-8e48-3bc8c5c34d7e" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/43d35a63-54c5-4c06-b253-387aac4dcc8b" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/b9f78779-15f4-4e0e-831f-b6a4d8e03bbe" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/ce6d0f83-2623-44aa-900a-9e7f20231baa" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/1a71f8c6-0217-4c43-b2de-241879019b4c" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/fb676d64-8528-4d45-9cd7-64d246c35bf3" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/3ece26b0-9d63-4e3a-a761-69bcf96f8a76" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/e0d0cd7f-f818-4574-a32c-b872d967960d" />
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/1a4b79f3-fe9b-4e9f-a06b-2c8c4600331e" />
 
 ### Web Uygulaması
-![Görev Listesi Web](screenshots/web_listeleme.png)
+<img width="946" height="779" alt="Ekran görüntüsü 2026-01-16 132648" src="https://github.com/user-attachments/assets/f843a7fd-f84c-4885-986d-23fed286054c" />
+
 
 ⏳ Gelecek Planları
 
