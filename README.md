@@ -65,7 +65,6 @@ flutter pub get
 
 # Uygulamayı çalıştır
 flutter run
-`
 
 ### 3. Web Uygulaması
 
@@ -89,16 +88,16 @@ python api.py
 
 ## 📸 Ekran Görüntüleri
 
-![Giriş Ekranı](assets/screenshots/giris.png)
-![Kayıt Ekranı](assets/screenshots/kayit.png)
-![Görev Listesi](assets/screenshots/görev_listesi.png)
-![Görev Listesi](assets/screenshots/görev_listesi2.png)
-![Görev Öneri](assets/screenshots/öneri.png)
-![Görev Ekleme](assets/screenshots/görev_ekleme.png)
-![Görev Ekleme](assets/screenshots/kategori_secim.png)
-![Görev Güncelleme](assets/screenshots/görev_guncelleme.png)
-![Çıkış](assets/screenshots/cıkıs.png)
-![Görev Listesi Web](assets/screenshots/web_listeleme.png)
+![Giriş Ekranı](screenshots/giris.png)
+![Kayıt Ekranı](screenshots/kayit.png)
+![Görev Listesi](screenshots/görev_listesi.png)
+![Görev Listesi](screenshots/görev_listesi2.png)
+![Görev Öneri](screenshots/öneri.png)
+![Görev Ekleme](screenshots/görev_ekleme.png)
+![Görev Ekleme](screenshots/kategori_secim.png)
+![Görev Güncelleme](screenshots/görev_guncelleme.png)
+![Çıkış](screenshots/cıkıs.png)
+![Görev Listesi Web](screenshots/web_listeleme.png)
 ---
 
 ## 🚀 Öne Çıkan Özellikler
